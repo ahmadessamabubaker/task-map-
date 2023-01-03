@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" >
+
+<head>
+    <meta charset="utf-8" />
+    <title>MapBox</title>
+    <!--Jquery-->
+    <script type="text/javascript" src="jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+    <!-- Bootstrap Styles -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="Styles.css">
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+    <script
+        src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+    <link rel="stylesheet"
+        href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css"
+        type="text/css">
+</head>
+
+<body>
+   
+
+    <!--Main-->
+
+    <section>
+        <div class="container main-container">
+            <div id="map"></div>
+        </div>
+    </section>
+
+    
+
+    <!-- Scripts -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+
+    <script>
+
+        //this adds the map to the HTML page
+
+        mapboxgl.accessToken = 'pk.eyJ1IjoibW9oYW1tYWQtYW1yIiwiYSI6ImNsY2QydDBqZDE5NXEzcW1wOWhtdGloeTgifQ.YNor-DAXoPJxfWS0oIXzOw';
+        const map = new mapboxgl.Map({
+            container: 'map',
+            // Chose the default streets style map
+            style: 'mapbox://styles/mapbox/streets-v12',
+            center: [35.930359, 31.963158],
+            zoom: 11
+        });
+
+        // Add the control to the map. (this adds the search and suggestion features to the map)
+        map.addControl(
+            new MapboxGeocoder({
+                accessToken: mapboxgl.accessToken,
+                mapboxgl: mapboxgl
+            })
+        );
+
+
+    </script>
+
+</body>
+
+</html>
